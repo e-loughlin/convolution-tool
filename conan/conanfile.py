@@ -10,7 +10,7 @@ class Recipe(ConanFile):
     generators = "CMakeDeps"
 
     default_options = {
-        "qtdeclarative": True,  # Default value
+        "qt/*:qtdeclarative": True,
     }
 
     def generate(self):

@@ -13,9 +13,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(QT_DIR, "/Users/eloughlin/Qt/6.8.0/macos/")
+set(QT_CMAKE_PREFIX_PATH "/Users/eloughlin/Qt/6.8.0/macos/lib/cmake/")
+
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml)
-
 
 # Setup Conan
 # include(${CMAKE_BINARY_DIR}/../conan_toolchain.cmake)
