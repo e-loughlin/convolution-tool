@@ -1,14 +1,14 @@
 # Directories
 BUILD_DIR = build
 INSTALL_DIR = $(BUILD_DIR)/release
-CONAN_DIR = $(INSTALL_DIR)/conan
+CONAN_DIR = $(BUILD_DIR)
 APP_NAME = convolution-tool
 
 # Conan options
-CONAN_OPTIONS = -of=${CONAN_DIR} --build=missing -s build_type=Release ./conan/conanfile.py
+CONAN_OPTIONS = -of=${CONAN_DIR} --build=missing ./conan/conanfile.py
 
 # CMake options
-CMAKE_OPTIONS = -DCMAKE_BUILD_TYPE=Release -S . -B $(INSTALL_DIR) -DCMAKE_TOOLCHAIN_FILE=${CONAN_DIR}/conan_toolchain.cmake
+CMAKE_OPTIONS = -DCMAKE_BUILD_TYPE=Release -S . -B $(INSTALL_DIR) -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
 
 # Path to environment file
 ENV_FILE = .env

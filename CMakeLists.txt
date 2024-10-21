@@ -16,16 +16,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml)
 
-# Setup Conan
-include(${CMAKE_BINARY_DIR}/conan/conan_toolchain.cmake)
+# Setup Conan - Deprecated
+# include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
 
-# Set CMAKE_PREFIX_PATH from an environment variable
+Set CMAKE_PREFIX_PATH from an environment variable
 if(DEFINED ENV{QT_CMAKE_PREFIX_PATH})
     set(CMAKE_PREFIX_PATH $ENV{QT_CMAKE_PREFIX_PATH})
 else()
     message(WARNING "QT_CMAKE_PREFIX_PATH environment variable is not set.")
 endif()
 
+# Set the bundle ID for macOS
+if(${QT_VERSION} VERSION_LESS 6.1.0)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.convolution-tool)
+endif()
 
 # Add subdirectories for modular components
 add_subdirectory(src)
