@@ -13,9 +13,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find Qt libraries, including QML and Quick for QML support
-find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml)
 
 # Setup Conan
 include(${CMAKE_BINARY_DIR}/conan/conan_toolchain.cmake)
@@ -26,6 +25,7 @@ if(DEFINED ENV{QT_CMAKE_PREFIX_PATH})
 else()
     message(WARNING "QT_CMAKE_PREFIX_PATH environment variable is not set.")
 endif()
+
 
 # Add subdirectories for modular components
 add_subdirectory(src)
