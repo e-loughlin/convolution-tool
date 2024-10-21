@@ -27,9 +27,9 @@ if(${QT_VERSION} VERSION_LESS 6.1.0)
 endif()
 
 # Enable conan integration
-include(${CMAKE_BINARY_DIR}/../conan/conan_paths.cmake)  
+# include(${CMAKE_BINARY_DIR}/../conan/conan_paths.cmake)  
 # include(conanbuildinfo.cmake) 
-conan_basic_setup()
+# conan_basic_setup()
 
 # Add subdirectories for modular components
 add_subdirectory(src)

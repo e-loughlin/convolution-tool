@@ -1,0 +1,57 @@
+{
+    "version": 3,
+    "vendor": {
+        "conan": {}
+    },
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 15,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "conan-release",
+            "displayName": "'conan-release' config",
+            "description": "'conan-release' configure using 'Unix Makefiles' generator",
+            "generator": "Unix Makefiles",
+            "cacheVariables": {
+                "CMAKE_POLICY_DEFAULT_CMP0091": "NEW",
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "environment": {
+                "QT_PLUGIN_PATH": "/Users/eloughlin/.conan2/p/b/qt7c7585e4a2334/p/plugins",
+                "QT_HOST_PATH": "/Users/eloughlin/.conan2/p/b/qt7c7585e4a2334/p",
+                "ACLOCAL_PATH": "$penv{ACLOCAL_PATH}:/Users/eloughlin/.conan2/p/b/libtod597430bd6f4f/p/res/aclocal",
+                "AUTOMAKE_CONAN_INCLUDES": "$penv{AUTOMAKE_CONAN_INCLUDES}:/Users/eloughlin/.conan2/p/b/libtod597430bd6f4f/p/res/aclocal",
+                "AUTOCONF": "/Users/eloughlin/.conan2/p/autocf2af015330354/p/bin/autoconf",
+                "AUTORECONF": "/Users/eloughlin/.conan2/p/autocf2af015330354/p/bin/autoreconf",
+                "AUTOHEADER": "/Users/eloughlin/.conan2/p/autocf2af015330354/p/bin/autoheader",
+                "AUTOM4TE": "/Users/eloughlin/.conan2/p/autocf2af015330354/p/bin/autom4te",
+                "M4": "/Users/eloughlin/.conan2/p/m454c4002a67120/p/bin/m4"
+            },
+            "toolchainFile": "conan_toolchain.cmake",
+            "binaryDir": "/Users/eloughlin/ws/convolution-tool/conan"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release",
+            "jobs": 12
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "conan-release",
+            "configurePreset": "conan-release",
+            "environment": {
+                "QT_PLUGIN_PATH": "/Users/eloughlin/.conan2/p/b/qt7c7585e4a2334/p/plugins",
+                "ACLOCAL_PATH": "$penv{ACLOCAL_PATH}:/Users/eloughlin/.conan2/p/b/libtod597430bd6f4f/p/res/aclocal",
+                "AUTOMAKE_CONAN_INCLUDES": "$penv{AUTOMAKE_CONAN_INCLUDES}:/Users/eloughlin/.conan2/p/b/libtod597430bd6f4f/p/res/aclocal",
+                "PATH": "/Users/eloughlin/.conan2/p/autom66a617d09f411/p/bin:/Users/eloughlin/.conan2/p/autocf2af015330354/p/bin:/Users/eloughlin/.conan2/p/m454c4002a67120/p/bin:$penv{PATH}",
+                "M4": "/Users/eloughlin/.conan2/p/m454c4002a67120/p/bin/m4",
+                "OPENSSL_MODULES": "/Users/eloughlin/.conan2/p/b/opensa72a6812614d0/p/lib/ossl-modules"
+            }
+        }
+    ]
+}

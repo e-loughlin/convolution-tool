@@ -5,7 +5,7 @@ pip install -r requirements.txt
 
 # Install Libraries / Dependencies
 mkdir build
-conan install --build=missing -if=conan -s build_type=Debug ./conan/conanfile.py
+conan install --build=missing -if=conan -s ./conan/conanfile.py
 
 # Sample
 cp ~/.env.sample .env
