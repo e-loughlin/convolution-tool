@@ -20,16 +20,16 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLa
 
 # Find Google Test
 # find_package(GTest REQUIRED)
+include(CTest)
+enable_testing()
 
 # Set the bundle ID for macOS
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.convolution-tool)
 endif()
 
-# Enable conan integration
-# include(${CMAKE_BINARY_DIR}/../conan/conan_paths.cmake)  
-# include(conanbuildinfo.cmake) 
-# conan_basic_setup()
+# Setup Conan
+include(${CMAKE_BINARY_DIR}/../conan/conan_toolchain.cmake)
 
 # Add subdirectories for modular components
 add_subdirectory(src)
