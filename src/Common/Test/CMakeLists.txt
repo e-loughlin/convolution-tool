@@ -1,8 +1,17 @@
-# Add test executable
+# Find Google Test
+find_package(GTest REQUIRED)
+
+
 add_executable(Test_ImageData Test_ImageData.cpp)
 
-# Link the Google Test library and other dependencies
 target_link_libraries(Test_ImageData gtest gtest_main)
 
-# Register the test with CTest
 add_test(NAME Test_ImageData COMMAND Test_ImageData)
+
+
+
+add_executable(Test_Kernel Test_Kernel.cpp)  
+
+target_link_libraries(Test_Kernel gtest gtest_main)
+
+add_test(NAME Test_Kernel COMMAND Test_Kernel)
