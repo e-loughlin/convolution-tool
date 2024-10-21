@@ -20,7 +20,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLa
 # Setup Conan
 include(${CMAKE_BINARY_DIR}/conan/conan_toolchain.cmake)
 
-set(CMAKE_PREFIX_PATH "/Users/eloughlin/Qt/6.8.0/macos/lib/cmake/Qt6")
+# set(CMAKE_PREFIX_PATH "/Users/eloughlin/Qt/6.8.0/macos/lib/cmake/Qt6")
+
+# Set CMAKE_PREFIX_PATH from an environment variable
+if(DEFINED ENV{QT_CMAKE_PREFIX_PATH})
+    set(CMAKE_PREFIX_PATH $ENV{QT_CMAKE_PREFIX_PATH})
+else()
+    message(WARNING "QT_CMAKE_PREFIX_PATH environment variable is not set.")
+endif()
 
 # Add subdirectories for modular components
 add_subdirectory(src)
