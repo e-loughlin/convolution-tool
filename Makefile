@@ -2,6 +2,7 @@
 BUILD_DIR = build
 CONAN_DIR = $(BUILD_DIR)/conan
 INSTALL_DIR = $(BUILD_DIR)/release
+APP_NAME = convolution-tool
 
 # Conan options
 CONAN_OPTIONS = -of=${CONAN_DIR} --build=missing -s build_type=Release ./conan/conanfile.py
@@ -33,3 +34,6 @@ install: build
 # Clean the build directories
 clean:
 	rm -rf $(BUILD_DIR)
+
+run:
+	./${INSTALL_DIR}/${APP_NAME}.app/Contents/MacOS/${APP_NAME}
