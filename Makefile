@@ -8,10 +8,7 @@ APP_NAME = convolution-tool
 CONAN_OPTIONS = -of=${CONAN_DIR} --build=missing ./conan/conanfile.py
 
 # CMake options
-CMAKE_OPTIONS = -DCMAKE_BUILD_TYPE=Release -S . -B $(INSTALL_DIR) -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake
-
-# Path to environment file
-ENV_FILE = .env
+CMAKE_OPTIONS = -DCMAKE_BUILD_TYPE=Release -S . -B $(INSTALL_DIR) -DCMAKE_TOOLCHAIN_FILE=${CONAN_DIR}/conan_toolchain.cmake
 
 .PHONY: all build conan install clean run clean-all
 
@@ -22,19 +19,19 @@ all: clean build
 conan:
 	@echo "Running Conan install..."
 	@{ test -f ./conan/conanfile.py; } || { echo "conanfile.py not found!"; exit 1; }
-	. $(ENV_FILE) && conan install $(CONAN_OPTIONS)
+	conan install $(CONAN_OPTIONS)
 
 # Run CMake configure step and build the project
 build: conan
 	@echo "Configuring with CMake..."
 	@cmake --version || { echo "CMake is not installed!"; exit 1; }
-	. $(ENV_FILE) && cmake $(CMAKE_OPTIONS) 
-	. $(ENV_FILE) && cmake --build $(INSTALL_DIR)
+	cmake $(CMAKE_OPTIONS) 
+	cmake --build $(INSTALL_DIR) --verbose
 
 # Install the built project (you can customize where to install)
 install: build
 	@echo "Installing the application..."
-	. $(ENV_FILE) && cmake --install $(INSTALL_DIR)
+	cmake --install $(INSTALL_DIR)
 
 # Clean the build directories
 clean:

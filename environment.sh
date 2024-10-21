@@ -12,5 +12,3 @@ alias b="python3 ${DIR}/tools/build_current_dir.py"
 
 # Source the pipenv
 source env/bin/activate
-
-source .env

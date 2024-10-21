@@ -2,12 +2,16 @@ from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeToolchain
 
 
-class YourProjectConan(ConanFile):
+class Recipe(ConanFile):
     name = "Convolution Tool"
     version = "0.1"
     settings = "os", "compiler", "build_type", "arch"
     requires = ["qt/6.7.3", "gtest/1.13.0", "opencv/4.10.0"]
     generators = "CMakeDeps"
+
+    default_options = {
+        "qtdeclarative": True,  # Default value
+    }
 
     def generate(self):
         toolchain = CMakeToolchain(self)

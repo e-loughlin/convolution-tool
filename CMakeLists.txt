@@ -16,15 +16,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml)
 
-# Setup Conan - Deprecated
-# include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
 
-Set CMAKE_PREFIX_PATH from an environment variable
-if(DEFINED ENV{QT_CMAKE_PREFIX_PATH})
-    set(CMAKE_PREFIX_PATH $ENV{QT_CMAKE_PREFIX_PATH})
-else()
-    message(WARNING "QT_CMAKE_PREFIX_PATH environment variable is not set.")
-endif()
+# Setup Conan
+# include(${CMAKE_BINARY_DIR}/../conan_toolchain.cmake)
 
 # Set the bundle ID for macOS
 if(${QT_VERSION} VERSION_LESS 6.1.0)
