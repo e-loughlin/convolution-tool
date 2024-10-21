@@ -2,5 +2,6 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/MainWindow.qml</file>
+        <file>qml/Assets/cat.png</file>
     </qresource>
 </RCC>

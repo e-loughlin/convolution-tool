@@ -13,11 +13,11 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find Qt libraries, including QML and Quick for QML support
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Quick Qml)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
 
 # Find Google Test
-find_package(GTest REQUIRED)
+# find_package(GTest REQUIRED)
 
 # Set the bundle ID for macOS
 if(${QT_VERSION} VERSION_LESS 6.1.0)

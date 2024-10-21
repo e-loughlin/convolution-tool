@@ -1,5 +1,6 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick 6.5
+import QtQuick.Controls 6.5
+import QtQuick.Layouts 6.5
 
 ApplicationWindow {
     visible: true
@@ -9,12 +10,11 @@ ApplicationWindow {
 
     GridLayout {
         columns: 2
-        spacing: 10
 
         // Left side: Upload and view photo
         Image {
             id: photo
-            source: "image.jpg"  // Placeholder source
+            source: "Assets/cat.png" 
             fillMode: Image.PreserveAspectFit
         }
 
@@ -42,7 +42,7 @@ ApplicationWindow {
             onClicked: {
                 // Call the C++ backend to apply the convolution
                 // Exposed method from C++ backend
-                applyConvolution(photo.source, outputPhoto.source);
+                // applyConvolution(photo.source, outputPhoto.source);
             }
         }
     }

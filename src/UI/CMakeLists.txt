@@ -1,5 +1,4 @@
 add_library(UI
-    main.cpp
     qml.qrc
 )
 
