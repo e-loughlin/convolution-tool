@@ -2,6 +2,12 @@
 
 ## Build Instructions
 
+## Setup
+
+```bash
+./setup.sh
+```
+
 ### Conan
 
 Use Python 3 to run Conan. 
@@ -13,3 +19,5 @@ Use Python 3 to run Conan.
 `mkdir build && cd build`
 
 `conan install .. --build=missing`
+
+

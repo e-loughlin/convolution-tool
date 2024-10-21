@@ -12,6 +12,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_PREFIX_PATH "/Users/eloughlin/Qt/6.8.0/macos/")
+
 # Find Qt libraries, including QML and Quick for QML support
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLayouts)
@@ -23,6 +25,11 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Quick Qml QuickLa
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.convolution-tool)
 endif()
+
+# Enable conan integration
+include(${CMAKE_BINARY_DIR}/../conan/conan_paths.cmake)  
+# include(conanbuildinfo.cmake) 
+conan_basic_setup()
 
 # Add subdirectories for modular components
 add_subdirectory(src)

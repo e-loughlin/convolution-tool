@@ -6,7 +6,7 @@ class YourProjectConan(ConanFile):
     name = "Convolution Tool"
     version = "0.1"
     settings = "os", "compiler", "build_type", "arch"
-    requires = ["gtest/1.13.0", "opencv/4.10.0"]
+    requires = ["qt/6.7.3", "gtest/1.13.0", "opencv/4.10.0"]
     generators = "CMakeDeps"
 
     def generate(self):
